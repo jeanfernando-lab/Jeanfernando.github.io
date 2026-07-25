@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E&F Store Online | Mode & Électronique</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- EKRAN CHAJMAN (PRELOADER) -->
+  <div id="preloader">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70" width="240" height="55" class="glow-pulse">
+      <defs>
+        <linearGradient id="efNeonPreload" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff0055" />
+          <stop offset="50%" stop-color="#00d2ff" />
+          <stop offset="100%" stop-color="#7000ff" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(5, 5)">
+        <path d="M10 28 L18 10 L28 20 L38 10 L46 28 Z" fill="url(#efNeonPreload)" />
+        <text x="52" y="40" font-family="'Permanent Marker', 'Impact', sans-serif" font-size="42" font-weight="900" font-style="italic" fill="url(#efNeonPreload)">E&F</text>
+        <path d="M50 47 Q 120 56 195 45 Q 130 52 50 47" fill="#ff0055" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- BANN SPÉSIAL PROMO ANIMÉ -->
+  <div class="promo-banner">
+    <div class="promo-text">
+      🔥 SPÉCIAL PROMO : -20% sur la catégorie Électronique ce week-end ! 🎁 Livraison offerte dès 10,000 HTG d'achat chez E&F Store Online ! ⚡
+    </div>
+  </div>
+
+  <!-- HEADER AK LOGO GRAFIK SVG GRAFFITI PRO -->
+  <header id="header">
+    <div class="logo">
+      <a href="#home" style="text-decoration: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70" width="240" height="55">
+          <defs>
+            <linearGradient id="efNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff0055" />
+              <stop offset="50%" stop-color="#00d2ff" />
+              <stop offset="100%" stop-color="#7000ff" />
+            </linearGradient>
+            
+            <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff0055" />
+              <stop offset="100%" stop-color="#00d2ff" />
+            </linearGradient>
+
+            <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <g transform="translate(5, 5)">
+            <path d="M10 28 L18 10 L28 20 L38 10 L46 28 Z" fill="url(#efNeon)" filter="url(#glowEffect)"/>
+            <circle cx="18" cy="8" r="2.5" fill="#00d2ff" />
+            <circle cx="28" cy="17" r="2.5" fill="#ff0055" />
+            <circle cx="38" cy="8" r="2.5" fill="#00d2ff" />
+
+            <text x="52" y="40" font-family="'Permanent Marker', 'Impact', sans-serif" font-size="42" font-weight="900" font-style="italic" fill="url(#efNeon)" filter="url(#glowEffect)" letter-spacing="2">E&F</text>
+            
+            <path d="M50 47 Q 120 56 195 45 Q 130 52 50 47" fill="#ff0055" filter="url(#glowEffect)" />
+            <circle cx="202" cy="46" r="2" fill="#00d2ff" />
+            <circle cx="208" cy="48" r="1.2" fill="#ff0055" />
+
+            <rect x="165" y="14" width="105" height="20" rx="6" fill="url(#badgeGrad)" />
+            <text x="217" y="28" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="900" fill="#000" text-anchor="middle" letter-spacing="1">STORE ONLINE</text>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <!-- BOUTON HAMBURGER MENU -->
+    <div class="hamburger-menu" id="hamburger-btn">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <!-- MENI NAVIGATION -->
+    <nav class="nav-links" id="nav-menu">
+      <a href="#home" class="menu-item"><i class="fas fa-home"></i> Accueil</a>
+      <a href="#vedettes" class="menu-item"><i class="fas fa-fire"></i> Populaire</a>
+      <a href="#boutique" class="menu-item"><i class="fas fa-store"></i> Boutique</a>
+      <a href="#avis" class="menu-item"><i class="fas fa-star"></i> Avis</a>
+      <a href="#commentaires" class="menu-item"><i class="fas fa-comments"></i> Commentaires</a>
+      <a href="#boutique" class="nav-btn menu-item">Acheter <i class="fas fa-shopping-cart"></i></a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2 class="fade-in">L'élégance et la technologie avec <span>E&F Store Online</span></h2>
+      <p class="fade-in delay">Découvrez nos collections de sneakers, vêtements, sacs et accessoires électroniques haut de gamme. Commandez facilement via WhatsApp.</p>
+      <a href="#boutique" class="btn">Voir la collection</a>
+    </div>
+
+    <div class="features-banner">
+      <div class="feature-item">
+        <i class="fas fa-shipping-fast"></i>
+        <h4>Livraison Rapide</h4>
+        <p>Partout où vous êtes</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-gem"></i>
+        <h4>Qualité Premium</h4>
+        <p>Produits certifiés</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-headset"></i>
+        <h4>Support Client</h4>
+        <p>Disponible 7j/7</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUITS VEDETTES -->
+  <section class="vedettes" id="vedettes">
+    <div class="section-title">
+      <h2>À la une 🔥</h2>
+      <p>Les articles les plus demandés</p>
+    </div>
+    <div class="vedette-grid">
+      <div class="vedette-card">
+        <div class="img-box">
+          <span class="product-badge badge-limit">Stock Limité 🔥</span>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Nike Red">
+        </div>
+        <h4>Nike Air Red Pro</h4>
+      </div>
+      <div class="vedette-card">
+        <div class="img-box">
+          <span class="product-badge badge-new">Nouveau ✨</span>
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" alt="Sac Pro">
+        </div>
+        <h4>Sac à dos Urban Tech</h4>
+      </div>
+      <div class="vedette-card">
+        <div class="img-box">
+          <span class="product-badge badge-hot">Populaire 🚀</span>
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Casque Pro">
+        </div>
+        <h4>Casque Bluetooth Bass+</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTIQUE AK KATEGORI YO -->
+  <section class="boutique" id="boutique">
+    <div class="section-title">
+      <h2>Notre Collection</h2>
+      <p>Choisissez une catégorie pour explorer nos articles</p>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="tout">Tout</button>
+      <button class="filter-btn" data-filter="tennis">Tennis</button>
+      <button class="filter-btn" data-filter="rad">Vêtements</button>
+      <button class="filter-btn" data-filter="valiz">Sacs & Sacs à dos</button>
+      <button class="filter-btn" data-filter="kepi">Casquettes</button>
+      <button class="filter-btn" data-filter="elektronik">Électronique</button> 
+    </div>
+
+    <div class="product-grid" id="product-grid">
+      <!-- TENNIS -->
+      <div class="product-card" data-category="tennis"><div class="img-box"><span class="product-badge badge-limit">Limité 🔥</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt=""></div><div class="card-details"><h3>Nike Air Max Red</h3><div class="price-row"><span class="price">10,000 HTG</span><button class="order-btn" onclick="commander('Nike Air Max Red', '10,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500" alt=""></div><div class="card-details"><h3>Air Jordan Pastel</h3><div class="price-row"><span class="price">11,500 HTG</span><button class="order-btn" onclick="commander('Air Jordan Pastel', '11,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500" alt=""></div><div class="card-details"><h3>Puma White Runner</h3><div class="price-row"><span class="price">8,500 HTG</span><button class="order-btn" onclick="commander('Puma White Runner', '8,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500" alt=""></div><div class="card-details"><h3>Adidas Sport Classic</h3><div class="price-row"><span class="price">9,000 HTG</span><button class="order-btn" onclick="commander('Adidas Sport', '9,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=500" alt=""></div><div class="card-details"><h3>New Balance 574</h3><div class="price-row"><span class="price">9,500 HTG</span><button class="order-btn" onclick="commander('New Balance 574', '9,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=500" alt=""></div><div class="card-details"><h3>Nike Blazer Mid</h3><div class="price-row"><span class="price">10,500 HTG</span><button class="order-btn" onclick="commander('Nike Blazer', '10,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=500" alt=""></div><div class="card-details"><h3>Converse Chuck Taylor</h3><div class="price-row"><span class="price">5,000 HTG</span><button class="order-btn" onclick="commander('Converse Chuck', '5,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83b?w=500" alt=""></div><div class="card-details"><h3>High Top Sneaker</h3><div class="price-row"><span class="price">7,500 HTG</span><button class="order-btn" onclick="commander('High Top', '7,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=500" alt=""></div><div class="card-details"><h3>Vans Old Skool Blue</h3><div class="price-row"><span class="price">6,000 HTG</span><button class="order-btn" onclick="commander('Vans Blue', '6,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500" alt=""></div><div class="card-details"><h3>Colorful Fashion Sneaker</h3><div class="price-row"><span class="price">8,000 HTG</span><button class="order-btn" onclick="commander('Fashion Sneaker', '8,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="tennis"><div class="img-box"><img src="https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=500" alt=""></div><div class="card-details"><h3>Asics Gel Nimbus</h3><div class="price-row"><span class="price">9,800 HTG</span><button class="order-btn" onclick="commander('Asics Gel', '9,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+
+      <!-- VÊTEMENTS -->
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt=""></div><div class="card-details"><h3>T-Shirt Blanc Premium</h3><div class="price-row"><span class="price">2,000 HTG</span><button class="order-btn" onclick="commander('T-Shirt Blanc', '2,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><span class="product-badge badge-new">Nouveau ✨</span><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500" alt=""></div><div class="card-details"><h3>Hoodie Streetwear</h3><div class="price-row"><span class="price">4,500 HTG</span><button class="order-btn" onclick="commander('Hoodie Streetwear', '4,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500" alt=""></div><div class="card-details"><h3>T-Shirt Noir Urban</h3><div class="price-row"><span class="price">2,200 HTG</span><button class="order-btn" onclick="commander('T-Shirt Noir', '2,200 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" alt=""></div><div class="card-details"><h3>Veste en Jean Classic</h3><div class="price-row"><span class="price">6,000 HTG</span><button class="order-btn" onclick="commander('Veste en Jean', '6,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500" alt=""></div><div class="card-details"><h3>T-Shirt Imprimé Special</h3><div class="price-row"><span class="price">2,500 HTG</span><button class="order-btn" onclick="commander('T-Shirt Imprimé', '2,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500" alt=""></div><div class="card-details"><h3>Sweatshirt Gris minimal</h3><div class="price-row"><span class="price">3,800 HTG</span><button class="order-btn" onclick="commander('Sweatshirt Gris', '3,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500" alt=""></div><div class="card-details"><h3>Veste Bomber Noir</h3><div class="price-row"><span class="price">7,000 HTG</span><button class="order-btn" onclick="commander('Veste Bomber', '7,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500" alt=""></div><div class="card-details"><h3>T-Shirt Dark Vibe</h3><div class="price-row"><span class="price">2,300 HTG</span><button class="order-btn" onclick="commander('T-Shirt Dark Vibe', '2,300 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=500" alt=""></div><div class="card-details"><h3>Chemise Style Moderne</h3><div class="price-row"><span class="price">3,500 HTG</span><button class="order-btn" onclick="commander('Chemise Moderne', '3,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500" alt=""></div><div class="card-details"><h3>Tenue Complète Sport</h3><div class="price-row"><span class="price">8,500 HTG</span><button class="order-btn" onclick="commander('Tenue Sport', '8,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="rad"><div class="img-box"><img src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=500" alt=""></div><div class="card-details"><h3>Veste Hiver Chic</h3><div class="price-row"><span class="price">9,000 HTG</span><button class="order-btn" onclick="commander('Veste Hiver', '9,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+
+      <!-- SACS & SACS À DOS -->
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" alt=""></div><div class="card-details"><h3>Sac à dos Black Tech</h3><div class="price-row"><span class="price">4,500 HTG</span><button class="order-btn" onclick="commander('Sac Black Tech', '4,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500" alt=""></div><div class="card-details"><h3>Sac à Main Cuir Élégant</h3><div class="price-row"><span class="price">6,500 HTG</span><button class="order-btn" onclick="commander('Sac Cuir Élégant', '6,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=500" alt=""></div><div class="card-details"><h3>Sac à dos Voyage Pro</h3><div class="price-row"><span class="price">5,500 HTG</span><button class="order-btn" onclick="commander('Sac Voyage Pro', '5,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500" alt=""></div><div class="card-details"><h3>Petit Sac à Main Rouge</h3><div class="price-row"><span class="price">4,000 HTG</span><button class="order-btn" onclick="commander('Sac Rouge', '4,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=500" alt=""></div><div class="card-details"><h3>Sac Bannière Crossbody</h3><div class="price-row"><span class="price">3,000 HTG</span><button class="order-btn" onclick="commander('Sac Crossbody', '3,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?w=500" alt=""></div><div class="card-details"><h3>Sac à dos Minimaliste</h3><div class="price-row"><span class="price">3,800 HTG</span><button class="order-btn" onclick="commander('Sac Minimaliste', '3,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=500" alt=""></div><div class="card-details"><h3>Sac à Main Fashion Noir</h3><div class="price-row"><span class="price">5,000 HTG</span><button class="order-btn" onclick="commander('Sac Fashion Noir', '5,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt=""></div><div class="card-details"><h3>Trousse & Sac d'accessoires</h3><div class="price-row"><span class="price">2,500 HTG</span><button class="order-btn" onclick="commander('Trousse Accessoires', '2,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1546938576-6e6a64f317cc?w=500" alt=""></div><div class="card-details"><h3>Sac de Sport Vintage</h3><div class="price-row"><span class="price">4,800 HTG</span><button class="order-btn" onclick="commander('Sac Vintage', '4,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=500" alt=""></div><div class="card-details"><h3>Sac Chic Doré</h3><div class="price-row"><span class="price">7,000 HTG</span><button class="order-btn" onclick="commander('Sac Chic Doré', '7,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="valiz"><div class="img-box"><img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?w=500" alt=""></div><div class="card-details"><h3>Sac à dos Cuir Brun</h3><div class="price-row"><span class="price">6,000 HTG</span><button class="order-btn" onclick="commander('Sac Cuir Brun', '6,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+
+      <!-- CASQUETTES -->
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500" alt=""></div><div class="card-details"><h3>Casquette NY Original Noir</h3><div class="price-row"><span class="price">1,500 HTG</span><button class="order-btn" onclick="commander('Casquette NY Noir', '1,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500" alt=""></div><div class="card-details"><h3>Casquette LA Rouge</h3><div class="price-row"><span class="price">1,500 HTG</span><button class="order-btn" onclick="commander('Casquette LA Rouge', '1,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=500" alt=""></div><div class="card-details"><h3>Casquette Snapback Urban</h3><div class="price-row"><span class="price">1,800 HTG</span><button class="order-btn" onclick="commander('Snapback Urban', '1,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1618354691229-88d47f285158?w=500" alt=""></div><div class="card-details"><h3>Casquette Minimalist White</h3><div class="price-row"><span class="price">1,400 HTG</span><button class="order-btn" onclick="commander('Casquette White', '1,400 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=500" alt=""></div><div class="card-details"><h3>Casquette Vintage Denim</h3><div class="price-row"><span class="price">1,700 HTG</span><button class="order-btn" onclick="commander('Casquette Denim', '1,700 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500" alt=""></div><div class="card-details"><h3>Casquette Sports Pro</h3><div class="price-row"><span class="price">1,600 HTG</span><button class="order-btn" onclick="commander('Casquette Sports', '1,600 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=500" alt=""></div><div class="card-details"><h3>Casquette Street Style</h3><div class="price-row"><span class="price">1,500 HTG</span><button class="order-btn" onclick="commander('Street Style Cap', '1,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1517423503376-73012932338f?w=500" alt=""></div><div class="card-details"><h3>Chapeau Bucket Hat</h3><div class="price-row"><span class="price">2,000 HTG</span><button class="order-btn" onclick="commander('Bucket Hat', '2,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500" alt=""></div><div class="card-details"><h3>Casquette Camouflage</h3><div class="price-row"><span class="price">1,800 HTG</span><button class="order-btn" onclick="commander('Casquette Camo', '1,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=500" alt=""></div><div class="card-details"><h3>Casquette Trucker Mesh</h3><div class="price-row"><span class="price">1,500 HTG</span><button class="order-btn" onclick="commander('Trucker Mesh', '1,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="kepi"><div class="img-box"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500" alt=""></div><div class="card-details"><h3>Casquette Edition Dorée</h3><div class="price-row"><span class="price">2,200 HTG</span><button class="order-btn" onclick="commander('Casquette Dorée', '2,200 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+
+      <!-- ÉLECTRONIQUE -->
+      <div class="product-card" data-category="elektronik"><div class="img-box"><span class="product-badge badge-hot">Populaire 🔥</span><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt=""></div><div class="card-details"><h3>Casque Audio JBL Bass+</h3><div class="price-row"><span class="price">3,500 HTG</span><button class="order-btn" onclick="commander('Casque JBL', '3,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1609592424074-124b61aa44e4?w=500" alt=""></div><div class="card-details"><h3>Powerbank FastCharge 20000mAh</h3><div class="price-row"><span class="price">2,500 HTG</span><button class="order-btn" onclick="commander('Powerbank 20000mAh', '2,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500" alt=""></div><div class="card-details"><h3>Écouteurs Sans Fil Pro</h3><div class="price-row"><span class="price">2,800 HTG</span><button class="order-btn" onclick="commander('Écouteurs Sans Fil', '2,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500" alt=""></div><div class="card-details"><h3>Casque Gaming RGB</h3><div class="price-row"><span class="price">4,200 HTG</span><button class="order-btn" onclick="commander('Casque Gaming', '4,200 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500" alt=""></div><div class="card-details"><h3>Haut-parleur Bluetooth Waterproof</h3><div class="price-row"><span class="price">3,200 HTG</span><button class="order-btn" onclick="commander('Haut-parleur Bluetooth', '3,200 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500" alt=""></div><div class="card-details"><h3>Chargeur Rapide Original Type-C</h3><div class="price-row"><span class="price">1,500 HTG</span><button class="order-btn" onclick="commander('Chargeur Type-C', '1,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=500" alt=""></div><div class="card-details"><h3>Câble Incassable Lightning/Type-C</h3><div class="price-row"><span class="price">1,000 HTG</span><button class="order-btn" onclick="commander('Cables Incassable', '1,000 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt=""></div><div class="card-details"><h3>Montre Connectée Smartwatch</h3><div class="price-row"><span class="price">4,500 HTG</span><button class="order-btn" onclick="commander('Smartwatch', '4,500 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1629815048086-a70d6f2845c8?w=500" alt=""></div><div class="card-details"><h3>Support Téléphone Voiture Sans Fil</h3><div class="price-row"><span class="price">1,800 HTG</span><button class="order-btn" onclick="commander('Support Voiture', '1,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?w=500" alt=""></div><div class="card-details"><h3>Écouteurs Airbuds Sleek</h3><div class="price-row"><span class="price">2,200 HTG</span><button class="order-btn" onclick="commander('Airbuds Sleek', '2,200 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+      <div class="product-card" data-category="elektronik"><div class="img-box"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500" alt=""></div><div class="card-details"><h3>Powerbank Solaire 30000mAh</h3><div class="price-row"><span class="price">3,800 HTG</span><button class="order-btn" onclick="commander('Powerbank Solaire', '3,800 HTG')"><i class="fab fa-whatsapp"></i></button></div></div></div>
+    </div>
+
+    <!-- BOUTON VOIR PLUS -->
+    <div class="voir-plus-container" id="voir-plus-container" style="display: none;">
+      <button class="btn" id="btn-voir-plus">Voir Plus <i class="fas fa-arrow-down"></i></button>
+    </div>
+  </section>
+
+  <!-- GALRI INSTAGRAM SOCIAL PROOF -->
+  <section class="insta-gallery" id="social">
+    <div class="section-title">
+      <h2>Rejoignez le Mouvement 🔥</h2>
+      <p>Nos clients ont du style avec E&F. Taguez-nous !</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1517438322307-e6ce39ce73ea?w=400" alt="Client 1">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400" alt="Client 2">
+      <img src="https://images.unsplash.com/photo-1523398002811-999aa8e9f5b9?w=400" alt="Client 3">
+      <img src="https://images.unsplash.com/photo-1520975954732-57dd22299614?w=400" alt="Client 4">
+    </div>
+  </section>
+
+  <!-- BOUTON GID TAY LA -->
+  <div class="guide-container" style="text-align: center; margin-bottom: 20px;">
+    <button class="btn guide-btn" onclick="toggleGuideTailles()"><i class="fas fa-ruler"></i> Guide des Tailles</button>
+  </div>
+
+  <!-- BOUTON PANYE FLOTTANT -->
+  <div class="cart-floating" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </div>
+
+  <!-- MODAL PANYE A -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+      <span class="close-btn" onclick="toggleCart()">&times;</span>
+      <h2>🛒 Votre Panier</h2>
+      <div id="cart-items">
+        <p class="empty-cart">Votre panier est vide pour le moment.</p>
+      </div>
+      <div class="cart-total" id="cart-total-section" style="display: none;">
+        Total : <span id="cart-total-price">0 HTG</span>
+      </div>
+      <button class="btn whatsapp-btn" id="btn-valider-commande" style="display: none;" onclick="envoyerCommandeWhatsApp()">
+        Valider sur WhatsApp <i class="fab fa-whatsapp"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL GID TAY LA -->
+  <div class="cart-modal" id="guide-modal">
+    <div class="cart-content">
+      <span class="close-btn" onclick="toggleGuideTailles()">&times;</span>
+      <h2>📏 Guide des Tailles</h2>
+      <p style="color: var(--text-gray); margin-bottom: 15px;">Voici nos équivalences standards :</p>
+      <table class="size-table">
+        <tr><th>Vêtements (US)</th><th>Équivalence (FR)</th></tr>
+        <tr><td>S (Small)</td><td>36 - 38</td></tr>
+        <tr><td>M (Medium)</td><td>38 - 40</td></tr>
+        <tr><td>L (Large)</td><td>42 - 44</td></tr>
+        <tr><td>XL (Extra Large)</td><td>46 - 48</td></tr>
+      </table>
+      <table class="size-table" style="margin-top: 15px;">
+        <tr><th>Sneakers (US)</th><th>Pointure (EU/FR)</th></tr>
+        <tr><td>8.0</td><td>41</td></tr>
+        <tr><td>9.0</td><td>42.5</td></tr>
+        <tr><td>10.0</td><td>44</td></tr>
+        <tr><td>11.0</td><td>45</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- AVIS CLIENTS -->
+  <section class="avis" id="avis">
+    <div class="section-title">
+      <h2>Ce que disent nos clients</h2>
+      <p>Avis certifiés de nos acheteurs</p>
+    </div>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Livraison super rapide sur Pétion-Ville ! Casque JBL la gen yon son ki fen anpil."</p>
+        <h4>- Marc O.</h4>
+      </div>
+      <div class="avis-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Puma ak tenis m achte yo se bon kalite reyel. Ma p toujou kòmande nan E&F Store Online."</p>
+        <h4>- Stanley P.</h4>
+      </div>
+      <div class="avis-card">
+        <i class="fas fa-quote-left"></i>
+        <p>"Mwen renmen ki jan yo reponn sou WhatsApp byen vit. Sèvis 10/10!"</p>
+        <h4>- Sarah L.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKSYON KÒMANTÈ KLIYAN YO -->
+  <section class="comments-section" id="commentaires">
+    <div class="section-title">
+      <h2>Laissez un commentaire 💬</h2>
+      <p>Partagez votre expérience avec E&F Store Online</p>
+    </div>
+
+    <div class="comments-container">
+      <form class="comment-form" id="comment-form">
+        <input type="text" id="comment-name" placeholder="Votre Nom" required />
+        <textarea id="comment-text" rows="4" placeholder="Écrivez votre commentaire ici..." required></textarea>
+        <button type="submit" class="btn">Publier le commentaire</button>
+      </form>
+
+      <div class="comments-list" id="comments-list">
+        <div class="comment-card">
+          <div class="comment-header">
+            <strong>Jean-Baptiste R.</strong>
+            <span class="comment-date">Aujourd'hui</span>
+          </div>
+          <p>Trè bon sèvis, casquette NY lan rive an fòm nèt. Mèsi E&F!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <h2>E&F Store Online</h2>
+      <p>Votre boutique digitale de confiance. Qualité, style et livraison rapide.</p>
+      <div class="socials">
+        <a href="https://wa.me/50946067866" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 E&F Store Online - Tous droits réservés.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
