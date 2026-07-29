@@ -1,282 +1,74 @@
-/* ================= NOUVO AJOU CSS ================= */
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f8; margin: 0; color: #333;}
+.top-bar { background-color: #111; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+h1, h2 { margin: 0; }
 
-/* HEADER STICKY LÈ W AP SCROLL */
-.header-scrolled {
-  background: rgba(0, 0, 0, 0.95);
-  padding: 10px 8%;
-  box-shadow: 0 5px 20px rgba(0, 210, 255, 0.2);
-  transition: all 0.3s ease;
-}
+.dashboard { display: flex; gap: 20px; padding: 20px; max-width: 1400px; margin: auto; align-items: flex-start;}
+@media (max-width: 900px) { .dashboard { flex-direction: column; } }
 
-/* BOUTON RECHÈCH (SEARCH BAR) */
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 500px;
-  margin: 0 auto 30px auto;
-  background: var(--card-bg);
-  border: 1px solid rgba(0, 210, 255, 0.5);
-  border-radius: 30px;
-  padding: 5px 15px;
+.panel { background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); width: 100%; box-sizing: border-box;}
+
+.category-tabs { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;}
+.tab-btn { background: #f0f2f5; color: #555; padding: 10px 20px; border: none; border-radius: 30px; font-weight: 600; cursor: pointer; transition: 0.3s; white-space: nowrap;}
+.tab-btn:hover { background: #e4e6e9; }
+.tab-btn.active { background: #111; color: white; }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; max-height: 60vh; overflow-y: auto; padding-right: 5px;}
+.product-card { 
+    border: 1px solid #e1e4e8; border-radius: 10px; padding: 15px; text-align: center; 
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; background: #ffffff;
 }
-.search-container i {
-  color: var(--accent);
-  margin-right: 10px;
-}
-.search-container input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  color: white;
-  padding: 10px;
-  font-size: 15px;
-  outline: none;
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: #111;}
+.product-card .price { color: #27ae60; font-weight: bold; font-size: 1.1em; margin-top: 5px;}
+.product-card .stock { font-size: 0.8em; color: gray; margin-top: 5px;}
+
+.product-image {
+    width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; border: 1px solid #eee;
 }
 
-/* BOUTON VOIR DÉTAILS (QUICK VIEW) SOU IMAJ YO */
-.quick-view-btn {
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0;
-}
-.product-card:hover .quick-view-btn {
-  bottom: 15px;
-  opacity: 1;
-}
-.quick-view-btn:hover {
-  background: var(--accent);
-  color: black;
-}
+.form-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+input, select { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; width: 100%; box-sizing: border-box; background: #fafafa;}
+button { border: none; cursor: pointer; font-weight: bold; transition: 0.2s; border-radius: 8px; }
 
-/* MODAL QUICK VIEW */
-.quick-view-content img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-.qv-options {
-  margin: 15px 0;
-  text-align: left;
-}
-.qv-options select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  background: var(--bg-color);
-  color: white;
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-}
+.btn-dark { background-color: #111; color: white; padding: 12px;}
+.btn-dark:hover { background-color: #333; }
+.btn-red { background-color: #e74c3c; color: white; padding: 8px 15px; border-radius: 6px;}
+.btn-red:hover { background-color: #c0392b; }
+.btn-gray { background-color: #95a5a6; color: white; padding: 12px; }
+.btn-gray:hover { background-color: #7f8c8d; }
+.btn-delete { background-color: transparent; color: #e74c3c; border: 1px solid #e74c3c; padding: 4px 8px; border-radius: 5px;}
+.btn-delete:hover { background-color: #e74c3c; color: white; }
 
-/* TOAST NOTIFICATION */
-#toast-container {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.toast {
-  background: #25d366;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  animation: slideUp 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
-}
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-@keyframes fadeOut {
-  to { opacity: 0; display: none; }
-}
+table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;}
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+th { color: #888; font-size: 12px; text-transform: uppercase;}
 
-/* BOUTON TOUNEN ANWO (BACK TO TOP) */
-#back-to-top {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  width: 50px;
-  height: 50px;
-  background: var(--card-bg);
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
-}
-#back-to-top.show {
-  display: flex;
-}
-#back-to-top:hover {
-  background: var(--accent);
-  color: black;
-}
+.total-section { background: #f8f9fa; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-top: 20px;}
+.panyen-list { min-height: 200px; max-height: 400px; overflow-y: auto;}
 
-/* SEKSYON FAQ */
-.faq-section {
-  padding: 60px 8%;
-  background: #02050a;
-}
-.faq-container {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.faq-item {
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid var(--accent);
-}
-.faq-item h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: var(--accent);
-}
-.faq-item p {
-  color: var(--text-gray);
-  line-height: 1.5;
-}
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 1000;}
+.modal-content { background: #ffffff; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);}
 
-/* FÒM NAN PANYE A */
-.client-form {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.client-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  outline: none;
-}
-.client-form input:focus {
-  border-color: var(--accent);
-}
+.resi-header { text-align: center; border-bottom: 1px dashed #000; padding-bottom: 10px; margin-bottom: 10px; }
+.resi-header h2 { margin: 0; font-size: 1.5em; }
+.resi-header p { margin: 5px 0 0 0; font-size: 0.9em; }
+.resi-table { width: 100%; margin-bottom: 10px; font-size: 0.95em;}
+.resi-table td { padding: 5px 0; border: none; border-bottom: 1px dotted #ccc;}
+.resi-footer { text-align: right; border-top: 1px dashed #000; padding-top: 10px; margin-top: 10px;}
+.resi-footer h3 { margin: 0; font-size: 1.2em; }
+.resi-footer p { text-align: center; font-size: 0.85em; margin-top: 15px; font-style: italic; }
 
-/* ================= KORIKSYON POU MODAL YO (PANYE AK QUICK VIEW) ================= */
-
-/* Fè Modal yo kache pa defo epi aji kòm Popup */
-.cart-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  opacity: 0;
-  pointer-events: none; /* Anpeche moun klike sou li lè l kache */
-  transition: opacity 0.3s ease;
-}
-
-/* Lè Javascript la ajoute class 'show', modal la ap parèt */
-.cart-modal.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Bwat kontni anndan modal la */
-.cart-content {
-  background: #0a0f18; /* Koulè fonse pou bwat la */
-  padding: 25px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-  color: #ffffff; /* Asire tout tèks anndan l an blan */
-  border: 1px solid #00d2ff;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Bouton (x) pou fèmen modal la */
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #ff0055;
-  transition: 0.2s;
-}
-.close-btn:hover {
-  color: #ffffff;
-  transform: scale(1.1);
-}
-
-/* Bouton ajoute / Valide nan panye anndan Modal yo */
-.whatsapp-btn {
-  width: 100%;
-  margin-top: 15px;
-  background: #25d366;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.whatsapp-btn:hover {
-  background: #1ebe57;
-}
-
-/* ================= KORIKSYON POU KOULÈ FAQ LA ================= */
-
-.faq-item {
-  background: #0a0f18; /* Fon nwa/ble fonse */
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid #00d2ff;
-  color: #ffffff; /* Fòse tout tèks la vin blan */
-  margin-bottom: 15px;
-}
-
-.faq-item h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #00d2ff; /* Tit la an ble klè */
-}
-
-.faq-item p {
-  color: #d1d5db; /* Tèks paragraf la an gri klè pou l vizib */
-  line-height: 1.6;
-  font-size: 15px;
+@media print { 
+    body * { visibility: hidden; }
+    #resi-print-area, #resi-print-area * { visibility: visible; }
+    #resi-print-area { 
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        max-width: 300px; 
+        font-family: monospace; 
+        color: #000;
+    }
+    .no-print { display: none !important; }
+    @page { margin: 0; }
 }
