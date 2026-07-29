@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutik Pro | Lojisyèl Kès Enterprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Libreri pou Grafik ak Scanner -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PAJ KONEKSYON -->
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-store logo-icon"></i>
+                <h2>BOUTIK PRO</h2>
+                <p>Konekte sou espas travay ou</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" placeholder="Non itilizatè">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Modpas">
+                </div>
+                <button class="btn btn-primary btn-full" onclick="konekte()">Konekte</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="main-app" class="app-container" style="display: none;">
+        <!-- TOP NAVBAR -->
+        <header class="top-nav no-print">
+            <div class="nav-brand">
+                <i class="fa-solid fa-store"></i> BOUTIK PRO
+                <span id="low-stock-badge" class="badge badge-success" style="margin-left: 15px; font-size: 12px;">Stòk Nòmal</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary btn-sm" onclick="louvriScanner()"><i class="fa-solid fa-barcode"></i> Scan Kòd-Ba</button>
+                <button class="btn btn-primary btn-sm" onclick="louvriModalKliyan()"><i class="fa-solid fa-users"></i> Kliyan & Kredi</button>
+                <span id="user-display" style="margin-left: 15px; margin-right: 15px;"><i class="fa-solid fa-circle-user"></i> Admin</span>
+                <button class="btn btn-danger btn-sm" onclick="dekonekte()"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </header>
+
+        <div class="main-content no-print">
+            <!-- PANO GOCH : KATALÒG -->
+            <section class="products-section">
+                <div class="filter-tabs">
+                    <button class="tab-btn active" onclick="filtreKategori('Tout')">Tout Pwodwi</button>
+                    <button class="tab-btn" onclick="filtreKategori('Vètman')">Vètman</button>
+                    <button class="tab-btn" onclick="filtreKategori('Tennis')">Tennis</button>
+                    <button class="tab-btn" onclick="filtreKategori('Kepi')">Kepi/Lòt</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search-input" class="form-input" placeholder="Chèche yon modèl oswa kòd-ba..." onkeyup="fèRechèch()">
+                </div>
+                <div class="products-grid" id="product-grid"></div>
+            </section>
+
+            <!-- PANO DWA : PANYEN AK KÈS -->
+            <aside class="pos-section">
+                <div class="pos-header">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Panyen</h3>
+                    <select id="select-kliyan" class="form-input" style="margin-top: 10px;">
+                        <option value="">Kliyan Ordinar (Cash)</option>
+                    </select>
+                </div>
+                <div class="cart-list" id="panyen-body"></div>
+                <div class="pos-footer">
+                    <div class="total-row">
+                        <span>Total Peye:</span>
+                        <span class="total-amount" id="total-panyen">0 HTG</span>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-success btn-full" onclick="valideVantLan('resi')">Valide (Bay Resi)</button>
+                        <button class="btn btn-warning btn-full" onclick="valideVantLan('kredi')">Mete sou Kont</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- DASHBOARD ADMIN -->
+        <section id="admin-panel" class="admin-section no-print">
+            <div class="section-title"><h3><i class="fa-solid fa-chart-pie"></i> Analitik & Envantè</h3></div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="stat-info"><p>Rantre Total</p><h3 id="total-lavant">0 HTG</h3></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: #10b981;"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="stat-info"><p>Pwofi Nèt</p><h3 id="total-benefis" style="color: #10b981;">0 HTG</h3></div>
+                </div>
+            </div>
+
+            <!-- GRAFIK -->
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h4>Vant pa Jou</h4>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h4>Pwodwi ki pi Vann</h4>
+                    <canvas id="itemsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="add-product-card">
+                <h4><i class="fa-solid fa-plus"></i> Ajoute nan Stòk</h4>
+                <div class="form-grid">
+                    <input type="text" id="nom-estok" class="form-input" placeholder="Non pwodwi a">
+                    <input type="text" id="barcode-estok" class="form-input" placeholder="Kòd-Ba (Si l genyen)">
+                    <select id="kategori-estok" class="form-input" onchange="chanjeKategoriEstok()">
+                        <option value="Tennis">Tennis & Sandal</option>
+                        <option value="Vètman">Vètman (Mayo, Pantalon)</option>
+                        <option value="Kepi">Kepi & Lòt Akseswa</option>
+                    </select>
+                </div>
+
+                <!-- GWOSÈ TENNIS (36-41) -->
+                <div id="seksyon-tennis" class="size-section">
+                    <label>Kantite pou chak nimewo (36-41):</label>
+                    <div class="size-grid">
+                        <div class="size-box"><span>36</span><input type="number" class="qty-tennis" data-num="36"></div>
+                        <div class="size-box"><span>37</span><input type="number" class="qty-tennis" data-num="37"></div>
+                        <div class="size-box"><span>38</span><input type="number" class="qty-tennis" data-num="38"></div>
+                        <div class="size-box"><span>39</span><input type="number" class="qty-tennis" data-num="39"></div>
+                        <div class="size-box"><span>40</span><input type="number" class="qty-tennis" data-num="40"></div>
+                        <div class="size-box"><span>41</span><input type="number" class="qty-tennis" data-num="41"></div>
+                    </div>
+                </div>
+
+                <!-- GWOSÈ VÈTMAN (S-XXL) -->
+                <div id="seksyon-vetman" class="size-section" style="display: none;">
+                    <label>Kantite pou chak gwosè (S-XXL):</label>
+                    <div class="size-grid">
+                        <div class="size-box"><span>S</span><input type="number" class="qty-vetman" data-num="S"></div>
+                        <div class="size-box"><span>M</span><input type="number" class="qty-vetman" data-num="M"></div>
+                        <div class="size-box"><span>L</span><input type="number" class="qty-vetman" data-num="L"></div>
+                        <div class="size-box"><span>XL</span><input type="number" class="qty-vetman" data-num="XL"></div>
+                        <div class="size-box"><span>XXL</span><input type="number" class="qty-vetman" data-num="XXL"></div>
+                    </div>
+                </div>
+
+                <!-- GWOSÈ NOMAL -->
+                <div id="seksyon-nomal" class="size-section" style="display: none;">
+                    <input type="number" id="kantite-nomal" class="form-input" placeholder="Kantite total an stòk">
+                </div>
+
+                <div class="form-grid" style="margin-top: 15px;">
+                    <input type="number" id="total-acha" class="form-input" placeholder="Total kòb Acha">
+                    <input type="number" id="pri-vant" class="form-input" placeholder="Pri vant / inite">
+                    <button class="btn btn-primary" onclick="ajouteNanEstok()">Sove Pwodwi a</button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead><tr><th>Pwodwi</th><th>Kòd-Ba</th><th>Stòk (Gwosè)</th><th>Pri Vant</th><th>Aksyon</th></tr></thead>
+                    <tbody id="estok-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL RESI (THERMAL PRINT 80mm) -->
+    <div id="modal-resi" class="modal-overlay" style="display: none;">
+        <div class="modal-card resi-card printable">
+            <div class="resi-header">
+                <h2>BOUTIK PRO</h2>
+                <p>Tel: +509 XXXX-XXXX</p>
+                <p id="dat-resi"></p>
+                <div style="border-bottom: 1px dashed black; margin: 10px 0;"></div>
+            </div>
+            <table style="width: 100%; font-size: 12px; margin-bottom: 15px;">
+                <thead><tr><th style="text-align:left;">Atik</th><th>Qte</th><th style="text-align:right;">Pri</th></tr></thead>
+                <tbody id="resi-items"></tbody>
+            </table>
+            <div style="border-top: 1px dashed black; padding-top: 10px; text-align: right; font-weight: bold; font-size: 16px;">
+                TOTAL: <span id="resi-total-print">0 HTG</span>
+            </div>
+            <p style="text-align: center; font-size: 12px; margin-top: 15px;">Mèsi, tounen vin achte ankò!</p>
+            
+            <div class="no-print" style="margin-top: 20px; display: flex; gap: 10px;">
+                <button class="btn btn-primary btn-full" onclick="window.print()"><i class="fa-solid fa-print"></i> Enprime Resi a</button>
+                <button class="btn btn-danger btn-full" onclick="femenResi()">Fèmen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SCANNER -->
+    <div id="modal-scanner" class="modal-overlay" style="display: none;">
+        <div class="modal-card" style="max-width: 400px; text-align: center;">
+            <h3>Scanner Kòd-Ba</h3>
+            <div id="reader" style="width: 100%; border-radius: 8px; overflow: hidden; margin: 15px 0;"></div>
+            <button class="btn btn-danger btn-full" onclick="femenScanner()">Anile</button>
+        </div>
+    </div>
+
+    <!-- MODAL KLIYAN (DÈT) -->
+    <div id="modal-kliyan" class="modal-overlay" style="display: none;">
+        <div class="modal-card" style="max-width: 500px;">
+            <h3>Jesyon Kliyan & Dèt</h3>
+            <div style="display: flex; gap: 10px; margin: 15px 0;">
+                <input type="text" id="nom-kliyan" class="form-input" placeholder="Non Kliyan">
+                <input type="tel" id="tel-kliyan" class="form-input" placeholder="Telefòn">
+                <button class="btn btn-primary" onclick="ajouteKliyan()">Ajoute</button>
+            </div>
+            <div class="table-container" style="max-height: 250px;">
+                <table class="data-table">
+                    <thead><tr><th>Kliyan</th><th>Dèt (HTG)</th><th>Aksyon</th></tr></thead>
+                    <tbody id="kliyan-body"></tbody>
+                </table>
+            </div>
+            <button class="btn btn-danger btn-full" style="margin-top: 15px;" onclick="document.getElementById('modal-kliyan').style.display = 'none';">Fèmen</button>
+        </div>
+    </div>
+
+    <!-- MODAL GWOSÈ -->
+    <div id="modal-gwose" class="modal-overlay" style="display:none;">
+        <div class="modal-card">
+            <h3 id="modal-tit">Chwazi Gwosè/Nimewo</h3>
+            <div id="modal-liste" class="modal-size-list"></div>
+            <button class="btn btn-danger btn-full" style="margin-top: 15px;" onclick="document.getElementById('modal-gwose').style.display = 'none';">Anile</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
