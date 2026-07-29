@@ -251,3 +251,12 @@ function valideVantLan(tip) {
     panyen = []; rafrechiEkran();
 }
 function femenResi() { document.getElementById('modal-resi').style.display = 'none'; }
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service Worker anrejistre avèk siksè!', reg))
+      .catch(err => console.log('Echèk nan anrejistreman Service Worker la:', err));
+  });
+}
+
