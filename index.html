@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutik Pro POS</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#111111">
     <link rel="stylesheet" href="style.css">
     <style>
         .kpi-container { display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;}
@@ -174,7 +176,7 @@
                     </div>
                 </div>
 
-                <!-- BLÒK GWOSÈ NÒMAL (Pou lòt atik) -->
+                <!-- BLÒK GWOSÈ NÒMAL -->
                 <div id="seksyon-gwose-nomal" class="form-group" style="display: none;">
                     <input type="text" id="gwose-estok" placeholder="Gwosè (Egz: S, M, L, XL, Standard)">
                     <input type="number" id="kantite-nomal" placeholder="Kantite total nan stòk">
@@ -206,6 +208,16 @@
         </div>
     </div>
 
+    <script>
+        // Anrejistre Service Worker la (SW)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW enstale avèk siksè!', reg))
+                    .catch(err => console.log('Erè SW:', err));
+            });
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
